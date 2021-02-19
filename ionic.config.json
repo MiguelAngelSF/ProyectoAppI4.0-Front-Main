@@ -1,0 +1,7 @@
+{
+  "name": "ride_UTA",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
