@@ -1,0 +1,49 @@
+.mujer {
+    background-color: #F1948A;
+}
+
+.hombre {
+    background-color: #8cade7;
+}
+
+ion-title {
+    text-align: center;
+}
+
+ion-card-title {
+    color: #000000;
+}
+
+h2 {
+    text-align: center;
+}
+
+.usuarios {
+    color: black;
+    text-align: center;
+}
+
+p {
+    color: rgb(255, 251, 0);
+    size: 200px;
+}
+
+ios-hydrated {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    size: 200px;
+}
+
+ion-avatar {
+    left: 65px;
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+}

@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Calificar conductor</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item>
+        <ion-label position="floating">Desea Calificar al Conductor</ion-label>
+        <ion-item>
+            <ion-input placeholder="Nombre Conductor" [(ngModel)]='cal.nombre'></ion-input>
+        </ion-item>
+        <ion-select [(ngModel)]="cal.calificacion" placeholder="Calificar al conductor">
+            <ion-select-option value="Excelente">Excelente</ion-select-option>
+            <ion-select-option value="Regular">Regular</ion-select-option>
+            <ion-select-option value="Malo">Malo</ion-select-option>
+        </ion-select>
+    </ion-item>
+    <div class="ion-margin-top">
+        <ion-button expand="block" (click)="postCal()">Enviar</ion-button>
+    </div>
+    <div class="ion-margin-top">
+        <ion-button expand="block" (click)="dismiss()">Volver</ion-button>
+    </div>
+
+    <h2>Conductores Registrados</h2>
+    <ion-card *ngFor="let usuario of usuarios" [ngClass]="usuario.genero=='Femenino'?'mujer':'hombre'">
+        <div class="usuarios">
+            <ion-card-header>
+                <ion-card-title>ID Usuario: {{usuario._id}}</ion-card-title><br>
+                <ion-card-title>Nombre: {{usuario.nombre}}</ion-card-title><br>
+                <ion-card-title>Tipo Usuario: {{usuario.tipoUsuario}}</ion-card-title><br>
+            </ion-card-header>
+        </div>
+    </ion-card>
+</ion-content>

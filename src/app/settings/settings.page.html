@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-toolbar color="success">
+        <ion-title>Perfil de Usuario</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="secondary">
+    <div>
+        <ion-card [ngClass]="admin.genero=='Femenino'?'mujer':'hombre'">
+            <div color="secondary" class="avatar">
+                <ion-avatar (click)="takePhoto()">
+                    <img [src]="userImage" *ngIf="!photo" />
+                    <img [src]="photo" *ngIf="photo" />
+                </ion-avatar>
+            </div>
+            <div class="usuarios">
+                <ion-card-header color="success">
+                    <ion-card-title>ID Usuario: {{admin._id}}</ion-card-title>
+                    <ion-card-title>Nombre: {{admin.nombre}}</ion-card-title>
+                    <ion-card-title>Email: {{admin.email}}</ion-card-title>
+                    <p>Edad: {{admin.edad}}</p>
+                    <p>Genero: {{admin.genero}}</p>
+                    <ion-card-title>Tipo: {{admin.tipoUsuario}}</ion-card-title>
+                </ion-card-header>
+            </div>
+        </ion-card>
+        <ion-button color="warning" expand="block" (click)="dismiss()">Volver</ion-button>
+    </div>
+</ion-content>

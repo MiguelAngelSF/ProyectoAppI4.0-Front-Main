@@ -1,0 +1,39 @@
+ion-label {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 10%;
+    font-size: 10px;
+}
+
+ion-item {
+    border-radius: 20%;
+}
+
+.cancelar {
+    position: relative;
+    left: 30%;
+}
+
+.guardar {
+    position: relative;
+    left: 8%;
+}
+
+.back {
+    position: relative;
+    width: 20px;
+    height: 23px;
+}
+
+.datos {
+    color: black;
+    text-align: center;
+}
+
+ion-title {
+    text-align: center;
+}
+
+ion-input {
+    color: black;
+}

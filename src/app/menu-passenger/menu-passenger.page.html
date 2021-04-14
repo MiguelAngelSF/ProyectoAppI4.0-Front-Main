@@ -1,0 +1,62 @@
+<ion-menu side="start" menuId="first" contentId="main">
+    <ion-header>
+        <ion-toolbar color="success">
+            <ion-title>Start Menu</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content color="secondary">
+        <ion-list>
+            <ion-item (click)="settings()">Perfil Pasajero</ion-item>
+            <ion-item (click)="Alertas()">Registrar Alertas</ion-item>
+            <ion-item (click)="calificaciones()">Tus Calificaciones</ion-item>
+            <div class="logout">
+                <ion-button (click)="logout()">LOG OUT</ion-button>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+<ion-router-outlet id="main"></ion-router-outlet>
+
+<ion-header [translucent]="true">
+    <ion-toolbar color="success">
+        <ion-buttons slot="start">
+            <ion-menu-button autoHide="false"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            Menu Passenger
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="secondary" [fullscreen]="true">
+    <h1>Comienza a ¡Viajar! {{usuario}}</h1>
+    <div class="viaje">
+        <ion-input class="primary-input" placeholder="Ubicacion Destino" [(ngModel)]="viaje.destino"></ion-input>
+        <ion-input class="primary-input" placeholder="Ubicacion Actual" [(ngModel)]="viaje.actual"></ion-input>
+    </div>
+    <ion-item>
+        <ion-label position="floating">Elige Tarifa Ideal</ion-label>
+        <ion-select [(ngModel)]="viaje.pago" placeholder="Selecciona Distancia">
+            <ion-select-option value="RideGratis">RideGratis(distancia Baja)</ion-select-option>
+            <ion-select-option value="RideMedio">$50.00(distancia Media)</ion-select-option>
+            <ion-select-option value="RideAlto">$100.00(DISTANCIA ALTA)</ion-select-option>
+        </ion-select>
+    </ion-item>
+    <div class="boton">
+        <ion-button color="danger" class="primary" (click)="presentActionSheet()">Tarjeta Credito/Debito</ion-button>
+    </div>
+    <div>
+        <ion-button color="success" expand="block" (click)="postViajes()">Solicitar Viaje</ion-button>
+    </div>
+    <div>
+        <ion-button color="warning" expand="block" (click)="CalificarConductor()">Calificar al conductor</ion-button>
+    </div>
+    <agm-map *ngIf="currentCenter" [latitude]="currentCenter.lat" [longitude]="currentCenter.lng" [zoom]="defaultZoom">
+        <agm-marker [latitude]="currentCenter.lat" [longitude]="currentCenter.lng" iconUrl="assets/img/carro2.png"></agm-marker>
+        <agm-polyline [strokeColor]="'red'" *ngIf="coordinates">
+            <agm-polyline-point *ngFor="let coords of coordinates" [latitude]="coords.lat" [longitude]="coords.lng"></agm-polyline-point>
+        </agm-polyline>
+    </agm-map>
+    <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118472.47144633476!2d-102.36134066139245!3d21.885879238927814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8429ec143ae4d9fb%3A0x4016978679c5220!2sAguascalientes%2C%20Ags.!5e0!3m2!1ses-419!2smx!4v1617154858954!5m2!1ses-419!2smx"
+        width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+</ion-content>

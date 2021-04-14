@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Tus Calificaciones</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="secondary">
+    <div class="ion-margin-top">
+        <ion-button expand="block" (click)="dismiss()">Volver</ion-button>
+    </div>
+    <h2>Conductores Registrados</h2>
+    <ion-card *ngFor="let cal of cali">
+        <div class="usuarios">
+            <ion-card-header color="light">
+                <ion-card-title>ID Calificacion: {{cal._id}}</ion-card-title><br>
+                <ion-card-title>Nombre: {{cal.nombre}}</ion-card-title><br>
+                <ion-card-title>Calificacion: {{cal.calificacion}}</ion-card-title><br>
+                <ion-card-title>Registro: {{cal.created_at}}</ion-card-title><br>
+            </ion-card-header>
+            <div class="ion-margin-top">
+                <ion-button expand="block" (click)="deleteCal(cal._id)">Eliminar Calificacion</ion-button>
+            </div>
+        </div>
+    </ion-card>
+</ion-content>

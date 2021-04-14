@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-toolbar color="success">
+        <ion-title>Auto Registrado</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="secondary">
+    <br>
+    <img src="../../assets/drive-banner.jpg" class="logo" />
+
+    <ion-card *ngFor="let auto1 of registros">
+        <ion-card-header>
+            <ion-card-title>Listo Para el ¡RIDE!</ion-card-title>
+            <p>ID Automovil: {{auto1._id}}</p>
+            <p>Propietario: {{auto1.propietario}}</p>
+            <p>Placas: {{auto1.placas}}</p>
+            <p>Modelo: {{auto1.modelo}}</p>
+            <p>Año de Fabricacion:{{auto1.anio}}</p>
+            <p>Fecha Registro:{{auto1.created_at}}</p>
+        </ion-card-header>
+        <div class="boton">
+            <ion-card-content>
+                <ion-button class="boton" color="danger" (click)="deleteAutos(auto1._id)">Borrar Registro Auto</ion-button>
+            </ion-card-content>
+        </div>
+    </ion-card>
+    <ion-button expand="block" color="warning" (click)="dismiss()">Volver</ion-button>
+</ion-content>

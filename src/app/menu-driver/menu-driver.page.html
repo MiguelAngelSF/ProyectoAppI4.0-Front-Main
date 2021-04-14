@@ -1,0 +1,56 @@
+<ion-menu side="start" menuId="first" contentId="main">
+    <ion-header>
+        <ion-toolbar color="success">
+            <ion-title>Menu Opciones Driver</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content color="secondary">
+        <ion-list>
+            <ion-item (click)="settings()">Configuracion de Conductor</ion-item>
+            <ion-item (click)="registroAuto()">Registro de Auto</ion-item>
+            <ion-item (click)="tuAuto()">Tu Auto</ion-item>
+            <ion-item (click)="historial()">Historial de Viajes</ion-item>
+            <ion-button (click)="logout()">LOG OUT</ion-button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+<ion-router-outlet id="main"></ion-router-outlet>
+
+<ion-header [translucent]="true">
+    <ion-toolbar color="success">
+        <ion-buttons slot="start">
+            <ion-menu-button autoHide="false"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            Menu Driver
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="secondary">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118472.47144633476!2d-102.36134066139245!3d21.885879238927814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8429ec143ae4d9fb%3A0x4016978679c5220!2sAguascalientes%2C%20Ags.!5e0!3m2!1ses-419!2smx!4v1617154858954!5m2!1ses-419!2smx"
+        width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <agm-map *ngIf="currentCenter" [latitude]="currentCenter.lat" [longitude]="currentCenter.lng" [zoom]="defaultZoom">
+        <agm-marker [latitude]="currentCenter.lat" [longitude]="currentCenter.lng" iconUrl="assets/img/carro2.png"></agm-marker>
+        <agm-polyline [strokeColor]="'red'" *ngIf="coordinates">
+            <agm-polyline-point *ngFor="let coords of coordinates" [latitude]="coords.lat" [longitude]="coords.lng"></agm-polyline-point>
+        </agm-polyline>
+    </agm-map>
+    <div class="peticiones">
+        <h2>Peticiones de Viajes</h2>
+    </div>
+    <ion-card *ngFor="let viaje1 of viajes">
+        <ion-card-header>
+            <ion-card-title>Notificacion Viaje Solicitado</ion-card-title>
+            <p>ID Viaje: {{viaje1._id}}</p>
+            <p>Tipo de Tarifa: {{viaje1.pago}}</p>
+            <p>Ubicacion de Destino: {{viaje1.destino}}</p>
+            <p>Ubicacion Actual: {{viaje1.actual}}</p>
+            <p>Fecha/Hora: {{viaje1.created_at}}</p>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-button class="confirmar" color="success" (click)="confirmarViajes()">Confirmar</ion-button>
+            <ion-button class="denegar" color="danger" (click)="deleteViajes(viaje1._id)">Denegar</ion-button>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

@@ -1,0 +1,41 @@
+<!-- <ion-content>
+    <ion-item>
+        <ion-label position="floating">USER</ion-label>
+        <ion-input [(ngModel)]="usuario"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">PASSWORD</ion-label>
+        <ion-input type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">TIPO</ion-label>
+        <ion-input [(ngModel)]="tipo"></ion-input>
+    </ion-item>
+    <ion-button (click)="logIn()" color="primary">LOG IN</ion-button>
+</ion-content> -->
+
+<ion-header>
+</ion-header>
+<ion-content class="ion-padding">
+    <div class="title">
+        <h4>Login</h4>
+    </div>
+    <div class="login">
+        <ion-input placeholder="Username" [(ngModel)]='usuario' class="primary-input"></ion-input>
+        <ion-input placeholder="Password" type="password" [(ngModel)]='password' class="primary-input"></ion-input>
+        <ion-item>
+            <ion-label position="floating">Tipo de usuario</ion-label>
+            <ion-select [(ngModel)]="usuario1.tipoUsuario" placeholder="Selecciona">
+                <ion-select-option value="Pasajero">Pasajero</ion-select-option>
+                <ion-select-option value="Conductor">Conductor</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <div class="ion-margin-top">
+            <ion-button expand="block" (click)="login()">LOGIN</ion-button>
+        </div>
+    </div>
+
+    <div class="ion-margin-top ion-text-center">
+        <a (click)="dismiss()">Cerrar</a>
+    </div>
+</ion-content>

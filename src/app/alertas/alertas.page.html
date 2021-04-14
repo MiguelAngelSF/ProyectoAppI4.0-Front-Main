@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-toolbar color="success">
+        <ion-title>Alertas</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="secondary" class="ion-padding">
+    <ion-item>
+        <ion-label position="floating">Tipo de alerta</ion-label>
+
+        <ion-select [(ngModel)]='alertap.descripcion' placeholder="Seleccionar tipo de alerta">
+            <ion-select-option value="Alerta de Choque"> Alerta de Choque</ion-select-option>
+            <ion-select-option value="Alerta de Robo"> Alerta de Robo</ion-select-option>
+        </ion-select>
+
+    </ion-item>
+    <ion-item>
+        <ion-input placeholder="Describir otro motivo de alerta" [(ngModel)]='alertap.descripcion'></ion-input>
+    </ion-item>
+    <div class="ion-margin-top">
+        <ion-button color="warning" expand="block" (click)="postAlerta()">Enviar alerta</ion-button>
+    </div>
+    <div class="ion-margin-top">
+        <ion-button color="warning" expand="block" (click)="dismiss()">Cerrar</ion-button>
+    </div>
+</ion-content>

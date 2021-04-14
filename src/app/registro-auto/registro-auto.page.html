@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-toolbar color="success">
+        <ion-title>
+            Registro de Auto
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="secondary">
+    <img src="../../assets/conduccin.jpg" class="logo" />
+    <!-- 
+    <ion-card>
+        <ion-card-header color="success">
+            <ion-card-title>ID Driver: {{admin._id}}</ion-card-title>
+        </ion-card-header>
+    </ion-card> -->
+
+    <div class="datos">
+        <ion-input placeholder="Titular del auto" class="primary-input" [(ngModel)]="auto.propietario"></ion-input>
+        <ion-input placeholder="Placas" class="primary-input" [(ngModel)]="auto.placas"></ion-input>
+        <ion-input placeholder="Modelo del Auto" class="primary-input" [(ngModel)]="auto.modelo"></ion-input>
+        <ion-input placeholder="Año de Fabricacion" class="primary-input" [(ngModel)]="auto.anio"></ion-input>
+    </div>
+
+    <div>
+        <ion-button class="guardar" color="success" (click)="postRegistro()" (click)='registroAuto()'>Guardar</ion-button>
+        <ion-button class="cancelar" color="danger" (click)="dismiss()">Cancelar</ion-button>
+    </div>
+
+</ion-content>

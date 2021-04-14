@@ -1,0 +1,39 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content class="ion-padding">
+    <div class="title">
+        <h4>Sign Up</h4>
+        <p>Registra tus datos</p>
+    </div>
+
+    <div class="datos">
+        <ion-input placeholder="Nombre" class="primary-input" [(ngModel)]="usuario.nombre"></ion-input>
+        <ion-input placeholder="Email" class="primary-input" [(ngModel)]="usuario.email"></ion-input>
+        <ion-input placeholder="Password" type="password" class="primary-input" [(ngModel)]="usuario.password"></ion-input>
+        <ion-input placeholder="Edad" class="primary-input" [(ngModel)]="usuario.edad"></ion-input>
+        <ion-item>
+            <ion-label position="floating">Genero</ion-label>
+            <ion-select [(ngModel)]="usuario.genero" placeholder="Selecciona">
+                <ion-select-option value="Femenino">Femenino</ion-select-option>
+                <ion-select-option value="Masculino">Masculino</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Tipo de usuario</ion-label>
+            <ion-select [(ngModel)]="usuario.tipoUsuario" placeholder="Selecciona">
+                <ion-select-option value="Pasajero">Pasajero</ion-select-option>
+                <ion-select-option value="Conductor">Conductor</ion-select-option>
+            </ion-select>
+        </ion-item>
+    </div>
+
+    <div class="ion-margin-top">
+        <ion-button expand="block" (click)="postUsuario()">SIGN UP</ion-button>
+    </div>
+
+    <div class="ion-margin-top ion-text-center">
+        <a (click)="dismiss()">Cerrar</a>
+    </div>
+</ion-content>
